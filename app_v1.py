@@ -7,7 +7,7 @@ st.set_page_config(page_title="🦙 Llama 2 Chatbot")
 
 # Replicate Credentials
 with st.sidebar:
-    st.title('🦙 Llama 2 Chatbot')
+    st.title('Start-up Buddy')
     if 'REPLICATE_API_TOKEN' in st.secrets:
         st.success('API key already provided!', icon='✅')
         replicate_api = st.secrets['REPLICATE_API_TOKEN']
@@ -21,7 +21,7 @@ os.environ['REPLICATE_API_TOKEN'] = replicate_api
 
 # Store LLM generated responses
 if "messages" not in st.session_state.keys():
-    st.session_state.messages = [{"role": "assistant", "content": "How may I assist you today?"}]
+    st.session_state.messages = [{"role": "assistant", "content": "How may I assist your start-up today?"}]
 
 # Display or clear chat messages
 for message in st.session_state.messages:
@@ -29,7 +29,7 @@ for message in st.session_state.messages:
         st.write(message["content"])
 
 def clear_chat_history():
-    st.session_state.messages = [{"role": "assistant", "content": "How may I assist you today?"}]
+    st.session_state.messages = [{"role": "assistant", "content": "How may I assist your start-up today?"}]
 st.sidebar.button('Clear Chat History', on_click=clear_chat_history)
 
 # Function for generating LLaMA2 response
